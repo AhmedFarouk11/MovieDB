@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row g-4 mt-5">
+        @for (Tv of MyTV; track Tv.id ) {
+        <div class="col-md-3">
+            <div class="card h-100">
+                <img src="https://image.tmdb.org/t/p/w500/{{Tv.backdrop_path}}" class="img-fluid" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">{{Tv.name}} {{Tv.original_name}}</h5>
+                    <p class="card-text">
+                        {{Tv.overview.split(".")[0]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

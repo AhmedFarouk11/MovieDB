@@ -1,0 +1,40 @@
+<div class="container">
+    <h2 class="fw-bolder fs-3">Trending People</h2>
+
+    <!-- Bootstrap Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide w-100 h-25 p-5" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            @for (trend of trending; track trend.id; let i = $index) {
+            <button type="button" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="i"
+                [class.active]="i === 0" aria-current="true"></button>
+            }
+        </div>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner ">
+            @for (trend of trending; track trend.id; let i = $index) {
+            <div class="carousel-item" [class.active]="i === 0">
+                <img width="600" [src]="'https://image.tmdb.org/t/p/w500' + trend.profile_path" class="d-block "
+                    [alt]="trend.name" />
+                <div class="carousel-caption d-none d-md-block fw-bolder">
+                    <h5>{{ trend.name }}</h5>
+                    <p>{{ trend.known_for_department }}</p>
+                </div>
+            </div>
+            }
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
